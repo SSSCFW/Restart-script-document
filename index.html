@@ -31,54 +31,56 @@
                     __import("os")__.remove('file.txt') = 1
                 </code>
             </pre>
-           ・if文<br>
-           ifで値の比較をするときは変数を必ず使用する。<br>
-           ()の中に式を書く。<br>
-           if文の終わりは「end」を使用する。<br>
-           a == b -> aとbが等しいとき<br>
-           a != b -> aとbが等しくないとき<br>
-           a <= b -> aがb以下のとき<br>
-           a >= b -> aがb以上の時<br>
-           a < b -> aがbより小さいとき<br>
-           a > b -> aがbより大きいとき<br>
-           && -> かつ (and)<br>
-           || -> または (or)<br>
-           <pre>
-            <code>
-                例:
-                # 自分の攻撃力増加のエフェクトのターン数を取得
-                count = get_my_effect_count(2)
-                # 自分の再生のエフェクトのターン数を取得
-                count2 = get_my_effect_count(3)
-                # 自分の攻撃力増加のエフェクトのレベルを取得
-                level = get_my_effect_level(2)
-                # aが5の時
-                if (count == 5)
-                    if (level > 10) # levelが10より大きいとき
-                        # 透明10ターン付与
-                        my_effect(5, 1, 10)
-                    end # (level > 10)のifを終了
+        </p>
+        <p style="padding-left:40px">
+            ・if文<br>
+            ifで値の比較をするときは変数を必ず使用する。<br>
+            ()の中に式を書く。<br>
+            if文の終わりは「end」を使用する。<br>
+            a == b -> aとbが等しいとき<br>
+            a != b -> aとbが等しくないとき<br>
+            a <= b -> aがb以下のとき<br>
+            a >= b -> aがb以上の時<br>
+            a < b -> aがbより小さいとき<br>
+            a > b -> aがbより大きいとき<br>
+            && -> かつ (and)<br>
+            || -> または (or)<br>
+            <pre>
+                <code>
+                    例:
+                    # 自分の攻撃力増加のエフェクトのターン数を取得
+                    count = get_my_effect_count(2)
+                    # 自分の再生のエフェクトのターン数を取得
+                    count2 = get_my_effect_count(3)
+                    # 自分の攻撃力増加のエフェクトのレベルを取得
+                    level = get_my_effect_level(2)
+                    # aが5の時
+                    if (count == 5)
+                        if (level > 10) # levelが10より大きいとき
+                            # 透明10ターン付与
+                            my_effect(5, 1, 10)
+                        end # (level > 10)のifを終了
 
-                    if (count2 > 3 && !level) # count2が3より大きい かつ レベルが0じゃないとき
-                        my_effect(3, 10, 10) # 再生(Lv.10)を10ターン付与
-                    end # (count2 > 3 && !level)を終了
+                        if (count2 > 3 && !level) # count2が3より大きい かつ レベルが0じゃないとき
+                            my_effect(3, 10, 10) # 再生(Lv.10)を10ターン付与
+                        end # (count2 > 3 && !level)を終了
 
-                    my_effect(2, 11, 6) # 攻撃力増加(Lv.11)を6ターン付与
-                end # (count == 5)のifを終了
+                        my_effect(2, 11, 6) # 攻撃力増加(Lv.11)を6ターン付与
+                    end # (count == 5)のifを終了
 
-                
-                # 不可能
-                # 直接関数を使用することはできない。
-                if (get_my_effect_level(2) == 5)
-            </code>
-        </pre>
+                    
+                    # 不可能
+                    # 直接関数を使用することはできない。
+                    if (get_my_effect_level(2) == 5)
+                </code>
+            </pre>
         </p>
         
     </div>
     <div class="main">
         <p style = " border-bottom : solid #EC0000"><font size="5">使用できる関数</font></p>
         <p style="padding-left:40px">
-            ※使用できるエフェクトには制限があります。(後述)
+            ※使用できるエフェクトには制限があります。(後述)<br>
            ・my_effect(effect_id, level, count)<br>
            自身にエフェクトを付与します。<br>
            ・enemy_effect(effect_id, level, count)<br>
@@ -156,20 +158,6 @@
             ・121: 鉄壁<br>
             ・10000: 死の宣告<br>
         </p>
-        <pre>
-            <code>
-                例:
-                # 現在の敵の火のレベルを取得し変数aに代入
-                a = get_enemy_effect_count(9)
-
-                # 敵に毒(Lv.8)を10ターン付与
-                enemy_effect(8, 4, 10)
-                if (a < 3 ) # aが3より小さいとき
-                  # 敵に火(Lv.5)を15ターン付与
-                  enemy_effect(9, 5, 15)
-                  end # if文終了
-            </code>
-        </pre>
     </div>
 </body>
 </html>
